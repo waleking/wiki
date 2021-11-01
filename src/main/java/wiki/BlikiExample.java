@@ -13,23 +13,12 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.io.PrintStream;
 
-
-import info.bliki.api.Page;
-import info.bliki.api.User;
-import info.bliki.wiki.filter.SectionHeader;
-import info.bliki.wiki.model.ITableOfContent;
-import info.bliki.wiki.model.Reference;
 import info.bliki.wiki.model.WikiModel;
-
 import info.bliki.wiki.dump.WikiArticle;
 import info.bliki.wiki.dump.IArticleFilter;
 import info.bliki.wiki.dump.WikiXMLParser;
 import info.bliki.wiki.dump.Siteinfo;
 import info.bliki.wiki.filter.PlainTextConverter;
-
-
-import java.util.List;
-import static java.lang.System.out;
 
 public class BlikiExample {
 
@@ -42,7 +31,7 @@ public class BlikiExample {
         wxp.parse();
     }
 
-        /**
+    /**
      * Print title an content of all the wiki pages in the dump.
      *
      */
