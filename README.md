@@ -31,7 +31,7 @@ Run `./category_edges.sql` to get category links.
 ```
 sudo mysql enwiki -uroot -p < category_edges.sql > category_edges.csv
 ```
-# Step 3. Get the Directed Acyclic Graph from the dumped category links
+# Step 3. Get the Directed Acyclic Graph from the dumped category edges
 Run the following command to get `DAG.csv` from `category_edges.csv` (10 - 20 minutes).
 ```
 python ./DAG.py
