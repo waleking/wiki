@@ -15,6 +15,7 @@ class Graph:
 
         self.root = "Main_topic_classifications"
         self.dag_file_name = "./DAG.csv"
+        self.edge_num = num
 
 
     def build_DAG(self):
@@ -32,15 +33,15 @@ class Graph:
         current_level_queue = [self.root]
         next_level_queue = []
 
-        how_many_nodes_visted = 0
-        vised_edges = set()
+        visited_edges = set()
         while(len(current_level_queue)>0 or len(next_level_queue)>0):
             current_category = current_level_queue.pop(0)
-            how_many_nodes_visted += 1
-            if(how_many_nodes_visted % 1000) == 0:
-                print(how_many_nodes_visted)
+            if(len(visited_edges)//1000 % 10) == 0:
+                print("\r%s/%s edges are visited." % \
+                        (len(visited_edges), self.edge_num), \
+                        end='', flush=True)
 
-            # set the current node's level 
+            # Set the current node's level 
             category_level_dict[current_category] = level
 
             if current_category in self.graph:
@@ -55,9 +56,10 @@ class Graph:
                        pass
                    else:
                        try:
-                           if("%s\t%s" % (current_category, neighbor) not in vised_edges):
-                               f.write("%s\t%s\n" % (current_category, neighbor))
-                               vised_edges.add("%s\t%s" % (current_category, neighbor))
+                           edge = "%s\t%s" % (current_category, neighbor)
+                           if(edge not in visited_edges):
+                               f.write(edge)
+                               visited_edges.add(edge)
                                next_level_queue.append(neighbor)
                        except Exception as e:
                            print(e)
@@ -66,7 +68,7 @@ class Graph:
                current_level_queue = next_level_queue
                next_level_queue = []
                level += 1
-               print(level)
+               # print(level)
 
 
 g = Graph()
