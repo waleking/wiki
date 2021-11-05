@@ -19,9 +19,9 @@ In mysql, create a new database named `enwiki`.
 
 Run the sql scripts to add tables. 
 ```
-sudo mysql -u root -p wiki_en < enwiki-latest-page.sql
-sudo mysql -u root -p wiki_en < enwiki-latest-category.sql
-sudo mysql -u root -p wiki_en < enwiki-latest-categorylinks.sql
+sudo mysql -u root -p enwiki < enwiki-latest-page.sql
+sudo mysql -u root -p enwiki < enwiki-latest-category.sql
+sudo mysql -u root -p enwiki < enwiki-latest-categorylinks.sql
 ```
 
 
