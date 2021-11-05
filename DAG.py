@@ -6,7 +6,8 @@ class Graph:
             for line in f:
                 if(num==0):
                     # Skip the csv head
-                    pass
+                    num += 1
+                    continue
                 source, target = line.strip().split("\t")
                 if(source in self.graph):
                     self.graph[source].append(target)
@@ -73,7 +74,7 @@ class Graph:
                next_level_queue = []
                level += 1
         f.close()
-        print("The DAG is saved in %s" % self.dag_file_name)
+        print("\nThe DAG is saved in %s" % self.dag_file_name)
 
 
 g = Graph()
