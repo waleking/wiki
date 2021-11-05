@@ -72,7 +72,8 @@ class Graph:
                current_level_queue = next_level_queue
                next_level_queue = []
                level += 1
-               # print(level)
+        f.close()
+        print("The DAG is saved in %s" % self.dag_file_name)
 
 
 g = Graph()
